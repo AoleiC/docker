@@ -18,7 +18,7 @@ RUN apk update \
 && chmod a+x /app/startup.sh \
 
 # 下载Tranposter 、需要放到/usr/local/bin/ 否则报错：transporter command no found 、获取transporter的执行权限
-ENV TRANSPORTER_VERSION 0.1.1
+ENV TRANSPORTER_VERSION 0.5.2
 ENV TRANSPORTER_TAG v${TRANSPORTER_VERSION}
 RUN curl --verbose -SLO "https://github.com/compose/transporter/releases/download/${TRANSPORTER_TAG}/transporter-${TRANSPORTER_VERSION}-linux-amd64" \
 && mv transporter-${TRANSPORTER_VERSION}-linux-amd64 /usr/local/bin/transporter \
