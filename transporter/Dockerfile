@@ -18,6 +18,6 @@ RUN apk update \
 ENV TRANSPORTER_VERSION 0.5.2
 ENV TRANSPORTER_TAG v${TRANSPORTER_VERSION}
 RUN curl --verbose -SLO "https://github.com/compose/transporter/releases/download/${TRANSPORTER_TAG}/transporter-${TRANSPORTER_VERSION}-linux-amd64" \
-&& mv transporter-${TRANSPORTER_VERSION}-linux-amd64 /usr/local/bin/transporter
+&& mv transporter-${TRANSPORTER_VERSION}-linux-amd64 /usr/local/bin/transporter \
 && chmod +x /usr/local/bin/transporter
 
