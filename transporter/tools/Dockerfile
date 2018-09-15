@@ -15,7 +15,7 @@ RUN apk update \
 && apk add bash-doc \
 && apk add bash-completion \
 && apk add curl \
-&& chmod a+x /app/startup.sh \
+&& chmod a+x /app/startup.sh
 
 # 下载Tranposter 、需要放到/usr/local/bin/ 否则报错：transporter command no found 、获取transporter的执行权限
 ENV TRANSPORTER_VERSION 0.5.2
