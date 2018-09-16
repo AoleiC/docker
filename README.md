@@ -6,46 +6,48 @@
 * kibana-5.5.3 单纯的5.5.3版本，账号密码默认为 elastic \ changeme
 
 * docker-compose 使用 ：
+
 ```
 version: '2'
 services:
   elasticsearch:
     image: aoleic/elasticsearch:5.5.3-ik
     restart: always
-    hostname: myelasticsearch
+    hostname: myesdb
     environment:
       - discovery.type=single-node
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     volumes:
-      - /data/myelasticsearch:/usr/share/elasticsearch/data
+      - /data/volumes/myesdb:/usr/share/elasticsearch/data:rw
     ulimits:
       memlock:
         soft: -1
         hard: -1
     mem_limit: 1g
-    my_net:           
-      aliases:        
-        - myelasticsearch
+    networks:
+      my_net:           
+        aliases:        
+          - myesdb
     ports:
       - "9200:9200"
       - "9300:9300"
-        
+
   kibana:
     image: aoleic/kibana:5.5.3
     restart: always
     hostname: mykibana
     environment:
-      ELASTICSEARCH_URL: http://myelasticsearch:9200
+      ELASTICSEARCH_URL: http://myesdb:9200
     ports:
       - "5601:5601"
     networks:
-    my_net:           
-      aliases:        
-        - mykibana
-  	
-  networks:
-    my_net:
-      external: true
+      my_net:           
+        aliases:        
+          - mykibana
+
+networks:
+  my_net:
+    external: true
 ```
 
 # Transporter介绍
