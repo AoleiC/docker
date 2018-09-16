@@ -64,9 +64,9 @@ function transform(doc) {
 ```
 * startup.sh
  
-手动创建的传输执行脚本，用于一键初始化导入
+手动创建的传输执行脚本，用于一键初始化导入或容器启动后自动执行
 
-*docker-compose
+* docker-compose
 
 配置相应的 数据库Host、账号、密码、库名、集合，账号密码没有则留空
 
