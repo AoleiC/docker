@@ -50,6 +50,12 @@ networks:
     external: true
 ```
 
+* 报错 没有创建node的权限：
+java.lang.IllegalStateException: Failed to create node environment
+java.nio.file.AccessDeniedException: /usr/share/elasticsearch/data/nodes
+则执行chmod 777 chmod 777 /data/volumes/myesdb/ 获取读写权限
+
+
 # Transporter介绍
 GitHub: https://github.com/compose/transporter
 
